@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -98,12 +98,18 @@ body {
 	right: 0;
 }
 
+/* body {
+	background-color: lightblue;
+} */
+
 </style>
 
 <!-------------------------------------------------End of Login Form css----------------------------------------------------->
 
 </head>
 <body>
+
+	<%-- <jsp:include page="BG.jsp"></jsp:include> --%>
 
 	<!--------------------------------------------------------Login Form--------------------------------------------------------->
 		
