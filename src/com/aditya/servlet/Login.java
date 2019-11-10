@@ -1,4 +1,4 @@
-package com.toDoApp.Servlet;
+package com.aditya.servlet;
 
 import java.io.IOException;
 
@@ -10,15 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.toDoApp.pojo.UserPojo;
-import com.toDoAppDao.UserDao;
+import com.aditya.dao.UserDao;
+import com.aditya.pojo.User;
 
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	UserPojo u = new UserPojo();
+	User u = new User();
 	UserDao ud = new UserDao();
-	
 
 	public Login() {
 		super();
@@ -26,7 +25,10 @@ public class Login extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession();
+		session.removeAttribute("username");
+		session.invalidate();
+		response.sendRedirect("HomePageDemo.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -43,7 +45,7 @@ public class Login extends HttpServlet {
 			response.sendRedirect("AdminHP.jsp");
 		} else {
 
-			UserPojo u = ud.getLogin(uname, pass);
+			User u = ud.getLogin(uname, pass);
 			// System.out.println(u);
 			if (u.getEmail() != null) {
 				System.out.println(u);
@@ -52,7 +54,7 @@ public class Login extends HttpServlet {
 					session.setAttribute("username", uname);
 					session.setAttribute("name", u.getName());
 					session.setAttribute("contact", u.getContact());
-					response.sendRedirect("index.jsp");
+					response.sendRedirect("HomePage.jsp");
 				}
 			} else {
 				System.out.println("else ====>");
@@ -63,5 +65,4 @@ public class Login extends HttpServlet {
 			}
 		}
 	}
-
 }

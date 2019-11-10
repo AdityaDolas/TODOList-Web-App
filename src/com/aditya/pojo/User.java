@@ -1,6 +1,6 @@
-package com.toDoApp.pojo;
+package com.aditya.pojo;
 
-public class UserPojo {
+public class User {
 	private int pid;
 	private String Name;
 	private String Contact;
