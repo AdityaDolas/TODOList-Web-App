@@ -7,13 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.aditya.dao.ToDoListDoa;
 import com.aditya.dao.UserDao;
+import com.aditya.pojo.ToDoList;
 import com.aditya.pojo.User;
 
 @WebServlet("/ToDoList")
 public class ToDoListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	ToDoListServlet td = new ToDoListServlet();
+	ToDoList t = new ToDoList();
+	ToDoListDoa td = new ToDoListDoa();
 	User u = new User();
 	UserDao ud = new UserDao();
 
@@ -37,10 +40,10 @@ public class ToDoListServlet extends HttpServlet {
 		u.setName(time);
 		u.setName(date);
 
-		boolean b = ud.addUser(u);
+		boolean b = td.addList(t);
 
 		if (b) {
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("ToDoListHomePage.jsp");
 		} else {
 			response.sendRedirect("CreateUser.jsp");
 		}

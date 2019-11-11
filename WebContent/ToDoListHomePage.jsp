@@ -59,53 +59,143 @@
 		</nav>
 	</div>
 	<br></br>
+	<br></br>
 
 	<div class="addList">
-		<div class="container sticky-top">
-			<div class="input-group mb-3">
-				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search">
-					<div class="input-group-btn">
-						<button class="btn btn-outline-secondary" type="button"
-							id="button-addon2">Button</button>
+		<form action="ToDoListServlet" method="post">
+			<div class="container sticky-top">
+				<div class="input-group mb-3">
+					<div class="input-group">
+						<input name="inpute" type="text" class="form-control"
+							placeholder="Enter an activity">
+						<div class="input-group-btn">
+							<button class="btn btn-danger" type="button" id="button-addon2">Add
+								To List</button>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 
 	<div class="table">
 		<div class="container">
-			<table class="table table-striped table-dark">
-				<thead>
-					<tr>
-						<th scope="col">#</th>
-						<th scope="col">First</th>
-						<th scope="col">Last</th>
-						<th scope="col">Handle</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<th scope="row">2</th>
-						<td>Jacob</td>
-						<td>Thornton</td>
-						<td>@fat</td>
-					</tr>
-					<tr>
-						<th scope="row">3</th>
-						<td>Larry</td>
-						<td>the Bird</td>
-						<td>@twitter</td>
-					</tr>
-				</tbody>
-			</table>
+			<div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+				<table class="table table-borderless table-dark">
+					<thead>
+						<tr class="bg-warning">
+							<th scope="col">Title</th>
+							<th scope="col">Check</th>
+							<th scope="col">Data & Time</th>
+							<th scope="col">Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="bg-info">
+							<td>Complete Thread Topic</td>
+							<td><div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input"
+										id="defaultUnchecked"> <label
+										class="custom-control-label" for="defaultUnchecked">Complete</label>
+								</div></td>
+							<td>10/11/19</td>
+							<td><i class="fa fa-trash" aria-hidden="true"></i></td>
+						</tr>
+						<tr class="bg-info">
+							<td>Complete Thread Topic</td>
+							<td><div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input"
+										id="defaultUnchecked"> <label
+										class="custom-control-label" for="defaultUnchecked">Complete</label>
+								</div></td>
+							<td>10/11/19</td>
+							<td><i class="fa fa-trash" aria-hidden="true"></i></td>
+						</tr>
+						<tr class="bg-info">
+							<td>Complete Thread Topic</td>
+							<td><div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input"
+										id="defaultUnchecked"> <label
+										class="custom-control-label" for="defaultUnchecked">Complete</label>
+								</div></td>
+							<td>10/11/19</td>
+							<td><i class="fa fa-trash" aria-hidden="true"></i></td>
+						</tr>
+						<tr class="bg-info">
+							<td>Complete Thread Topic</td>
+							<td><div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input"
+										id="defaultUnchecked"> <label
+										class="custom-control-label" for="defaultUnchecked">Complete</label>
+								</div></td>
+							<td>10/11/19</td>
+							<td><i class="fa fa-trash" aria-hidden="true"></i></td>
+						</tr>
+						<tr class="bg-info">
+							<td>Complete Thread Topic</td>
+							<td><div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input"
+										id="defaultUnchecked"> <label
+										class="custom-control-label" for="defaultUnchecked">Complete</label>
+								</div></td>
+							<td>10/11/19</td>
+							<td><i class="fa fa-trash" aria-hidden="true"></i></td>
+						</tr>
+						<tr class="bg-info">
+							<td>Complete Thread Topic</td>
+							<td><div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input"
+										id="defaultUnchecked"> <label
+										class="custom-control-label" for="defaultUnchecked">Complete</label>
+								</div></td>
+							<td>10/11/19</td>
+							<td><i class="fa fa-trash" aria-hidden="true"></i></td>
+						</tr>
+						<tr class="bg-info">
+							<td>Complete Thread Topic</td>
+							<td><div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input"
+										id="defaultUnchecked"> <label
+										class="custom-control-label" for="defaultUnchecked">Complete</label>
+								</div></td>
+							<td>10/11/19</td>
+							<td><i class="fa fa-trash" aria-hidden="true"></i></td>
+						</tr>
+						<tr class="bg-info">
+							<td>Complete Thread Topic</td>
+							<td><div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input"
+										id="defaultUnchecked"> <label
+										class="custom-control-label" for="defaultUnchecked">Complete</label>
+								</div></td>
+							<td>10/11/19</td>
+							<td><i class="fa fa-trash" aria-hidden="true"></i></td>
+						</tr>
+						<tr class="bg-info">
+							<td>Complete Thread Topic</td>
+							<td><div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input"
+										id="defaultUnchecked"> <label
+										class="custom-control-label" for="defaultUnchecked">Complete</label>
+								</div></td>
+							<td>10/11/19</td>
+							<td><i class="fa fa-trash" aria-hidden="true"></i></td>
+						</tr>
+						<tr class="bg-info">
+							<td>Complete Thread Topic</td>
+							<td><div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input"
+										id="defaultUnchecked"> <label
+										class="custom-control-label" for="defaultUnchecked">Complete</label>
+								</div></td>
+							<td>10/11/19</td>
+							<td><i class="fa fa-trash" aria-hidden="true"></i></td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
 		</div>
 	</div>
 
