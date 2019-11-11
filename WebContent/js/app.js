@@ -82,7 +82,8 @@ document.addEventListener("keyup",function(even){
                 trash : false
             });
             
-            // add item to localstorage ( this code must be added where the LIST array is updated)
+            // add item to localstorage ( this code must be added where the LIST
+			// array is updated)
             localStorage.setItem("TODO", JSON.stringify(LIST));
             
             id++;
@@ -120,6 +121,15 @@ list.addEventListener("click", function(event){
         removeToDo(element);
     }
     
-    // add item to localstorage ( this code must be added where the LIST array is updated)
+    // add item to localstorage ( this code must be added where the LIST array
+	// is updated)
     localStorage.setItem("TODO", JSON.stringify(LIST));
 });
+
+$(document).ready(function () {
+	$('#dtVerticalScrollExample').DataTable({
+	"scrollY": "200px",
+	"scrollCollapse": true,
+	});
+	$('.dataTables_length').addClass('bs-select');
+	});
