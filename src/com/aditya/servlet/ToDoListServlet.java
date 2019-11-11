@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.aditya.dao.ToDoListDoa;
 import com.aditya.dao.UserDao;
 
-+import com.aditya.pojo.ToDoList;
+import com.aditya.pojo.ToDoList;
 import com.aditya.pojo.User;
 
 @WebServlet("/ToDoListServlet")
@@ -32,7 +32,13 @@ public class ToDoListServlet extends HttpServlet {
 		String username = (String) session.getAttribute("username");
 
 		String action = request.getParameter("action");
-		if (action != null && action.equals("addToCart")) {
+		if (action != null && action.equals("delete")) {
+			String email = request.getParameter("email");
+
+			boolean b = td.deleteUser(email);
+			if (b) {
+				response.sendRedirect("UserServlet");
+			}
 
 		} else {
 			List<ToDoList> ToDoList = td.getList(username);
