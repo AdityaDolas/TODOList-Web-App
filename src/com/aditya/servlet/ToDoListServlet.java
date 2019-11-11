@@ -1,24 +1,26 @@
 package com.aditya.servlet;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.aditya.dao.ToDoListDoa;
 import com.aditya.dao.UserDao;
-import com.aditya.pojo.ToDoList;
+
++import com.aditya.pojo.ToDoList;
 import com.aditya.pojo.User;
 
-@WebServlet("/ToDoList")
+@WebServlet("/ToDoListServlet")
 public class ToDoListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ToDoList t = new ToDoList();
 	ToDoListDoa td = new ToDoListDoa();
-	User u = new User();
-	UserDao ud = new UserDao();
 
 	public ToDoListServlet() {
 		super();
@@ -26,6 +28,17 @@ public class ToDoListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String username = (String) session.getAttribute("username");
+
+		String action = request.getParameter("action");
+		if (action != null && action.equals("addToCart")) {
+
+		} else {
+			List<ToDoList> ToDoList = td.getList(username);
+			session.setAttribute("ToDoList", ToDoList);
+			response.sendRedirect("ToDoListHomePage.jsp");
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -33,12 +46,8 @@ public class ToDoListServlet extends HttpServlet {
 
 		// Inserting Data into Database
 		String name = request.getParameter("inpute");
-		String time = request.getParameter("inpute");
-		String date = request.getParameter("inpute");
 
-		u.setName(name);
-		u.setName(time);
-		u.setName(date);
+		t.setName(name);
 
 		boolean b = td.addList(t);
 
