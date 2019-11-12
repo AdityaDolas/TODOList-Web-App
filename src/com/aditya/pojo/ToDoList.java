@@ -11,4 +11,10 @@ public class ToDoList {
 		Name = name;
 	}
 
+	@Override
+	public String toString() {
+		return "ToDoList [Name=" + Name + ", getName()=" + getName() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
 	}
+	
+}

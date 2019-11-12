@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page import="com.aditya.pojo.ToDoList"%>
+<%@page import="java.util.List"%>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -25,6 +27,10 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+	<%
+		List<ToDoList> toDoList = (List<ToDoList>) session.getAttribute("toDoList");
+	%>
 
 	<div>
 		<div>
@@ -94,15 +100,24 @@
 							</tr>
 						</thead>
 						<tbody>
+						<%
+							for(ToDoList t : toDoList){
+								
+							
+						%>
 							<tr class="bg-info">
-								<td>Complete Thread Topic</td>
+								<td><%=t.getName() %></td>
 								<td><div class="custom-control custom-checkbox">
 										<input type="checkbox" class="custom-control-input"
 											id="defaultUnchecked"> <label
 											class="custom-control-label" for="defaultUnchecked">Complete</label>
 									</div></td>
-								<td><i class="fa fa-trash" aria-hidden="true"></i></td>
+								<td><a href="TodolistData?action=delete&lid="><button type="submit"><i
+										class="fa fa-trash" aria-hidden="true"></i></button></td>
 							</tr>
+							<%
+							}
+							%>
 						</tbody>
 					</table>
 

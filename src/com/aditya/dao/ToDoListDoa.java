@@ -36,7 +36,8 @@ public class ToDoListDoa {
 		return false;
 	}
 
-	public boolean getList(String email) {
+	// Get data from database
+	public List<ToDoList> getList() {
 		String sql = "select * from list";
 		List<ToDoList> tl = new ArrayList<>();
 		try {
@@ -44,33 +45,34 @@ public class ToDoListDoa {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				ToDoList t = new ToDoList();
-				t.setName(rs.getString(1));
+				t.setName(rs.getString(2));
 				tl.add(t);
+				System.out.println(tl);
 
 			}
 			return tl;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return tl;
+		return null;
 	}
-	
-	// DELETE LIST
-		public boolean deleteUser(String email) {
-			String sql = "delete from user where email=?";
-			try {
-				PreparedStatement ps = con.prepareStatement(sql);
-				ps.setString(1, email);
-				int i = ps.executeUpdate();
-				if (i > 0) {
-					return true;
-				}
 
-			} catch (Exception e) {
-				e.printStackTrace();
+	// DELETE LIST
+	public boolean deleteUser(String email) {
+		String sql = "delete from user where email=?";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, email);
+			int i = ps.executeUpdate();
+			if (i > 0) {
+				return true;
 			}
 
-			return false;
-
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
+		return false;
+
+	}
 }
