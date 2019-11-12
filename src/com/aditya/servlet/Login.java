@@ -48,7 +48,7 @@ public class Login extends HttpServlet {
 			User u = ud.getLogin(uname, pass);
 			// System.out.println(u);
 			if (u.getEmail() != null) {
-				System.out.println(u);
+				// System.out.println(u);
 
 				if (u.getEmail().equals(uname) && u.getPassword().equals(pass)) {
 					session.setAttribute("username", uname);
@@ -57,7 +57,6 @@ public class Login extends HttpServlet {
 					response.sendRedirect("ToDoListServlet");
 				}
 			} else {
-				System.out.println("else ====>");
 				request.setAttribute("loginmsg", "Invalid Username or Password");
 				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 				rd.include(request, response);

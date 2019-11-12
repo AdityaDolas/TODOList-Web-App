@@ -45,6 +45,7 @@ public class ToDoListDoa {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				ToDoList t = new ToDoList();
+				t.setLid(rs.getInt(1));
 				t.setName(rs.getString(2));
 				tl.add(t);
 
@@ -57,11 +58,11 @@ public class ToDoListDoa {
 	}
 
 	// DELETE LIST
-	public boolean deleteUser(String email) {
-		String sql = "delete from user where email=?";
+	public boolean deleteUser(int Lid) {
+		String sql = "delete from list where Lid=?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, email);
+			ps.setInt(1, Lid);
 			int i = ps.executeUpdate();
 			if (i > 0) {
 				return true;

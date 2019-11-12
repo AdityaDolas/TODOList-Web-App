@@ -110,7 +110,7 @@
 											id="defaultUnchecked"> <label
 											class="custom-control-label" for="defaultUnchecked">Complete</label>
 									</div></td>
-								<td><a href="TodolistData?action=delete&lid="><button
+								<td><a href="ToDoListServlet?action=delete&lid=<%=t.getLid()%>"><button
 											type="submit">
 											<i class="fa fa-trash" aria-hidden="true"></i>
 										</button></td>

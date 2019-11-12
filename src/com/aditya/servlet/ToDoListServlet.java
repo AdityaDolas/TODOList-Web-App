@@ -33,7 +33,7 @@ public class ToDoListServlet extends HttpServlet {
 
 		String action = request.getParameter("action");
 		if (action != null && action.equals("delete")) {
-			String email = request.getParameter("email");
+			int email = Integer.parseInt(request.getParameter("lid"));
 			boolean b = td.deleteUser(email);
 			if (b) {
 				response.sendRedirect("ToDoListServlet");
@@ -57,7 +57,7 @@ public class ToDoListServlet extends HttpServlet {
 		boolean b = td.addList(t);
 
 		if (b) {
-			response.sendRedirect("TodolistData");
+			response.sendRedirect("ToDoListServlet");
 		} else {
 			response.sendRedirect("CreateUser.jsp");
 		}
