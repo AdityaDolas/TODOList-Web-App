@@ -54,12 +54,12 @@ public class Login extends HttpServlet {
 					session.setAttribute("username", uname);
 					session.setAttribute("name", u.getName());
 					session.setAttribute("contact", u.getContact());
-					response.sendRedirect("ToDoListHomePage.jsp");
+					response.sendRedirect("TodolistData");
 				}
 			} else {
 				System.out.println("else ====>");
 				request.setAttribute("loginmsg", "Invalid Username or Password");
-				RequestDispatcher rd = request.getRequestDispatcher("LoginPage.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 				rd.include(request, response);
 
 			}

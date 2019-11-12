@@ -58,7 +58,7 @@ public class ToDoListServlet extends HttpServlet {
 		boolean b = td.addList(t);
 
 		if (b) {
-			response.sendRedirect("ToDoListHomePage.jsp");
+			response.sendRedirect("TodolistData");
 		} else {
 			response.sendRedirect("CreateUser.jsp");
 		}

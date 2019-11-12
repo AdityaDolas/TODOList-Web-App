@@ -97,26 +97,31 @@
 								<th scope="col">Title</th>
 								<th scope="col">Check</th>
 								<th scope="col">Delete</th>
+								<th scope="col">Delete</th>
+								<th scope="col">Delete</th>
+								<th scope="col">Delete</th>
+								<th scope="col">Delete</th>
+								<th scope="col">Delete</th>
 							</tr>
 						</thead>
 						<tbody>
-						<%
-							for(ToDoList t : toDoList){
-								
-							
-						%>
+							<%
+								for (ToDoList t : toDoList) {
+							%>
 							<tr class="bg-info">
-								<td><%=t.getName() %></td>
+								<td><%=t.getName()%></td>
 								<td><div class="custom-control custom-checkbox">
 										<input type="checkbox" class="custom-control-input"
 											id="defaultUnchecked"> <label
 											class="custom-control-label" for="defaultUnchecked">Complete</label>
 									</div></td>
-								<td><a href="TodolistData?action=delete&lid="><button type="submit"><i
-										class="fa fa-trash" aria-hidden="true"></i></button></td>
+								<td><a href="TodolistData?action=delete&lid="><button
+											type="submit">
+											<i class="fa fa-trash" aria-hidden="true"></i>
+										</button></td>
 							</tr>
 							<%
-							}
+								}
 							%>
 						</tbody>
 					</table>

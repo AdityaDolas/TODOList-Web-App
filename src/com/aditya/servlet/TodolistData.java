@@ -37,7 +37,7 @@ public class TodolistData extends HttpServlet {
 			}
 		} else {
 			List<ToDoList> tl = td.getList();
-			// System.out.println(tl);
+			 System.out.println(tl);
 			session.setAttribute("toDoList", tl);
 			response.sendRedirect("ToDoListHomePage.jsp");
 		}

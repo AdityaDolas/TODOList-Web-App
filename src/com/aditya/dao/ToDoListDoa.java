@@ -47,7 +47,6 @@ public class ToDoListDoa {
 				ToDoList t = new ToDoList();
 				t.setName(rs.getString(2));
 				tl.add(t);
-				System.out.println(tl);
 
 			}
 			return tl;
