@@ -97,11 +97,6 @@
 								<th scope="col">Title</th>
 								<th scope="col">Check</th>
 								<th scope="col">Delete</th>
-								<th scope="col">Delete</th>
-								<th scope="col">Delete</th>
-								<th scope="col">Delete</th>
-								<th scope="col">Delete</th>
-								<th scope="col">Delete</th>
 							</tr>
 						</thead>
 						<tbody>

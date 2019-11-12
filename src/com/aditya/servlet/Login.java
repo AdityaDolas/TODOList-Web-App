@@ -54,7 +54,7 @@ public class Login extends HttpServlet {
 					session.setAttribute("username", uname);
 					session.setAttribute("name", u.getName());
 					session.setAttribute("contact", u.getContact());
-					response.sendRedirect("TodolistData");
+					response.sendRedirect("ToDoListServlet");
 				}
 			} else {
 				System.out.println("else ====>");

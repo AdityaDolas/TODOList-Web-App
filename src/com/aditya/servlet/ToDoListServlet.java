@@ -34,16 +34,15 @@ public class ToDoListServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		if (action != null && action.equals("delete")) {
 			String email = request.getParameter("email");
-
 			boolean b = td.deleteUser(email);
 			if (b) {
-				response.sendRedirect("UserServlet");
+				response.sendRedirect("ToDoListServlet");
 			}
-
 		} else {
-			/*List<ToDoList> ToDoList = td.getList(username);
-			session.setAttribute("ToDoList", ToDoList);
-			response.sendRedirect("ToDoListHomePage.jsp");*/
+			List<ToDoList> tl = td.getList();
+			 System.out.println(tl);
+			session.setAttribute("toDoList", tl);
+			response.sendRedirect("ToDoListHomePage.jsp");
 		}
 	}
 
