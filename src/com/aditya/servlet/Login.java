@@ -28,7 +28,7 @@ public class Login extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.removeAttribute("username");
 		session.invalidate();
-		response.sendRedirect("HomePageDemo.jsp");
+		response.sendRedirect("index.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -40,7 +40,7 @@ public class Login extends HttpServlet {
 		String pass = request.getParameter("pass");
 
 		if (uname != null && uname.equals("admin") && pass.equals("123")) {
-			System.out.println(uname);
+			// System.out.println(uname);
 			session.setAttribute("adminName", uname);
 			response.sendRedirect("AdminHP.jsp");
 		} else {

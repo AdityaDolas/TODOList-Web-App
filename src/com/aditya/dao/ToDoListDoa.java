@@ -53,8 +53,33 @@ public class ToDoListDoa {
 			return tl;
 		} catch (Exception e) {
 			e.printStackTrace();
+
 		}
 		return null;
+	}
+
+	// get data by id
+	public User getUserByid(String username) {
+		String sql = "select * from users where Email=?";
+		User u = new User();
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, username);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				u.setPid(rs.getInt(1));
+				u.setName(rs.getString(2));
+				u.setContact(rs.getString(3));
+				u.setEmail(rs.getString(4));
+				u.setPassword(rs.getString(5));
+
+			}
+
+		} catch (Exception e) {
+
+		}
+		return u;
+
 	}
 
 	// DELETE LIST

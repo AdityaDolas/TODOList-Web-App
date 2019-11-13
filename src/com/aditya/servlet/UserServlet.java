@@ -73,6 +73,5 @@ public class UserServlet extends HttpServlet {
 		} else {
 			response.sendRedirect("CreateUser.jsp");
 		}
-
 	}
 }
