@@ -19,10 +19,13 @@ public class ToDoListDoa {
 	public boolean addList(ToDoList t) {
 
 		// Inserting Data into Database
-		String sql = "insert into List (Todolist) values(?)";
+		String sql = "insert into List (Todolist,Email,Date) values(?,?,?)";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, t.getName());
+			ps.setString(2, t.getEmail());
+			ps.setString(3, t.getDate());
+			
 
 			int i = ps.executeUpdate();
 			if (i > 0) {
@@ -37,16 +40,19 @@ public class ToDoListDoa {
 	}
 
 	// Get data from database
-	public List<ToDoList> getList() {
-		String sql = "select * from list";
+	public List<ToDoList> getListById(String username) {
+		String sql = "select * from list where email=?";
+
 		List<ToDoList> tl = new ArrayList<>();
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, username);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				ToDoList t = new ToDoList();
 				t.setLid(rs.getInt(1));
 				t.setName(rs.getString(2));
+				t.setDate(rs.getString(4));
 				tl.add(t);
 
 			}

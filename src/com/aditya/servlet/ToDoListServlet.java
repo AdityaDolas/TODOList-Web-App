@@ -1,6 +1,8 @@
 package com.aditya.servlet;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -39,20 +41,29 @@ public class ToDoListServlet extends HttpServlet {
 				response.sendRedirect("ToDoListServlet");
 			}
 		} else {
-			List<ToDoList> tl = td.getList();
+			List<ToDoList> tl = td.getListById(username);
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+			LocalDateTime now = LocalDateTime.now();
+			String date = dtf.format(now);
+			System.out.println(date);
 			// System.out.println(tl);
 			session.setAttribute("toDoList", tl);
+			session.setAttribute("dateTime", date);
 			response.sendRedirect("ToDoListHomePage.jsp");
 		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		HttpSession session=request.getSession();
 		// Inserting Data into Database
 		String name = request.getParameter("inpute");
-
+		String email=(String)session.getAttribute("username");
+		String date=(String)session.getAttribute("dateTime");
+		
 		t.setName(name);
+		t.setEmail(email);
+		t.setDate(date);
 
 		boolean b = td.addList(t);
 

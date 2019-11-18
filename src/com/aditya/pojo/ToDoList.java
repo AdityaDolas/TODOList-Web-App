@@ -3,6 +3,8 @@ package com.aditya.pojo;
 public class ToDoList {
 	private int Lid;
 	private String Name;
+	private String Email;
+	private String Date;
 
 	public int getLid() {
 		return Lid;
@@ -20,9 +22,25 @@ public class ToDoList {
 		Name = name;
 	}
 
+	public String getEmail() {
+		return Email;
+	}
+
+	public void setEmail(String email) {
+		Email = email;
+	}
+
+	public String getDate() {
+		return Date;
+	}
+
+	public void setDate(String date) {
+		Date = date;
+	}
+
 	@Override
 	public String toString() {
-		return "ToDoList [Lid=" + Lid + ", Name=" + Name + "]";
+		return "ToDoList [Lid=" + Lid + ", Name=" + Name + ", Email=" + Email + ", Date=" + Date + "]";
 	}
 
 }

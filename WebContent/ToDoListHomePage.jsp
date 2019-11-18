@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page import="java.time.LocalDateTime"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="com.aditya.pojo.ToDoList"%>
 <%@page import="java.util.List"%>
 <html lang="en">
@@ -34,8 +36,8 @@
 			response.sendRedirect("LoginPage.jsp");
 		} */
 	%>
-	
-	
+
+
 
 	<%
 		List<ToDoList> toDoList = (List<ToDoList>) session.getAttribute("toDoList");
@@ -54,19 +56,14 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active"><a class="nav-link" href="#">Home
+						<!-- <li class="nav-item active"><a class="nav-link" href="#">Home
 								<span class="sr-only">(current)</span>
-						</a></li>
+						</a></li> -->
 
 					</ul>
 					<form action="Login" method="get" class="form-inline my-2 my-lg-0">
-						<input class="form-control mr-sm-2" type="search"
-							placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+						<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Logout</button>
 						<ul class="navbar-nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="#">Logout
-									<span class="sr-only">(current)</span>
-							</a></li>
 
 						</ul>
 					</form>
@@ -105,6 +102,7 @@
 							<tr class="bg-warning">
 								<th scope="col">Title</th>
 								<th scope="col">Check</th>
+								<th scope="col">Date & Time</th>
 								<th scope="col">Delete</th>
 							</tr>
 						</thead>
@@ -119,7 +117,9 @@
 											id="defaultUnchecked"> <label
 											class="custom-control-label" for="defaultUnchecked">Complete</label>
 									</div></td>
-								<td><a href="ToDoListServlet?action=delete&lid=<%=t.getLid()%>"><button
+								<td><%=t.getDate()%></td>
+								<td><a
+									href="ToDoListServlet?action=delete&lid=<%=t.getLid()%>"><button
 											type="submit">
 											<i class="fa fa-trash" aria-hidden="true"></i>
 										</button></td>

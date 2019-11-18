@@ -114,7 +114,7 @@ public class UserDao {
 
 	// DELETE USER
 	public boolean deleteUser(String email) {
-		String sql = "delete from user where email=?";
+		String sql = "delete from users where email=?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, email);
