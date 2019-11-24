@@ -19,13 +19,32 @@ public class ToDoListDoa {
 	public boolean addList(ToDoList t) {
 
 		// Inserting Data into Database
-		String sql = "insert into List (Todolist,Email,Date) values(?,?,?)";
+		String sql = "insert into List (Todolist,Email,Date,checked) values(?,?,?,'incomplete')";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, t.getName());
 			ps.setString(2, t.getEmail());
 			ps.setString(3, t.getDate());
-			
+			//ps.setString(4, t.getChecked());
+
+			int i = ps.executeUpdate();
+			if (i > 0) {
+
+				return true;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	// Inserting Check-box into Database
+	public boolean addCheckBox(ToDoList t) {
+		String sql = "update list set checked='complete' where lid=?;";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(4, t.getChecked());
 
 			int i = ps.executeUpdate();
 			if (i > 0) {

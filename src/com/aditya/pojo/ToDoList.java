@@ -5,6 +5,7 @@ public class ToDoList {
 	private String Name;
 	private String Email;
 	private String Date;
+	private String checked;
 
 	public int getLid() {
 		return Lid;
@@ -38,9 +39,18 @@ public class ToDoList {
 		Date = date;
 	}
 
+	public String getChecked() {
+		return checked;
+	}
+
+	public void setChecked(String checked) {
+		this.checked = checked;
+	}
+
 	@Override
 	public String toString() {
-		return "ToDoList [Lid=" + Lid + ", Name=" + Name + ", Email=" + Email + ", Date=" + Date + "]";
+		return "ToDoList [Lid=" + Lid + ", Name=" + Name + ", Email=" + Email + ", Date=" + Date + ", checked="
+				+ checked + "]";
 	}
 
 }

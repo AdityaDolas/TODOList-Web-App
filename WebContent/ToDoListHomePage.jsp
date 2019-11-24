@@ -46,7 +46,7 @@
 	<div>
 		<div>
 			<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-				<a class="navbar-brand" href="#">ToDoList</a>
+				<a class="navbar-brand" href="ToDoListHomePage.jsp">ToDoList</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -80,8 +80,8 @@
 				<div class="container sticky-top">
 					<div class="input-group mb-3">
 						<div class="input-group">
-							<input name="inpute" type="text" class="form-control"
-								placeholder="Enter an activity">
+							<input name="insert" type="text" class="form-control"
+								placeholder="Enter an activity" required>
 							<div class="input-group-btn">
 								<button class="btn btn-danger" type="submit" id="button-addon2">Add
 									To List</button>
@@ -112,10 +112,10 @@
 							%>
 							<tr class="bg-info">
 								<td><%=t.getName()%></td>
-								<td><div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input"
-											id="defaultUnchecked"> <label
-											class="custom-control-label" for="defaultUnchecked">Complete</label>
+								<td><div>
+										<input name="completeTask" type="checkbox"
+											id="<%=t.getLid()%>" onclick="completeTask(this)"> <label
+											for="defaultUnchecked">Complete</label>
 									</div></td>
 								<td><%=t.getDate()%></td>
 								<td><a
@@ -151,4 +151,26 @@
 			crossorigin="anonymous"></script>
 	</div>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+	crossorigin="anonymous"></script>
+<script>
+	function completeTask(taskId) {
+		console.log(taskId.id);
+
+		/*ajax*/
+		$.ajax({
+			type : 'POST',
+			url : "ToDoListServlet?action=completeTask",
+			data : {
+				"taskId" : taskId.id
+			},
+			dataType : "json",
+			success : function(resultData) {
+				alert("Save Complete")
+			}
+		});
+	}
+</script>
 </html>
